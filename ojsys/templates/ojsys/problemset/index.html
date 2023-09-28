@@ -90,7 +90,7 @@
                 {{ question.id }}
             </div>
             <div class="col">
-                <a href="/problemset/{{ question.id }}/">{{ question.title }}</a>
+                <a href="{% url 'ojsys:detail' question.id %}">{{ question.title }}</a>
             </div>
             <div class="col">
                 {{ question.submissionCnt }} / {{ question.acceptedCnt }}

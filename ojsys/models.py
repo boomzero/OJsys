@@ -29,7 +29,7 @@ class Dataset(models.Model):
 class Submission(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     code = models.TextField()
-    lang = models.CharField(max_length=20)
+    lang = models.CharField(max_length=20,default="C++")
 
     def __str__(self):
         return self.code

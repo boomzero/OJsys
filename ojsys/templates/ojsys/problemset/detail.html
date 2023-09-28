@@ -21,6 +21,25 @@
 </style>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">OJSys</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/problemset">Problemset</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -30,10 +49,11 @@
     </nav>
     <div id="problemInf" class="text-center">
         <h1>{{question.id}}: {{question.title}}</h1>
-        <h4>时间限制:{{question.timeLimit}} ms</h4>
-        <h4>空间限制:{{question.memoryLimit}} MB</h4>
+        <h4>时间限制: {{question.timeLimit}} ms</h4>
+        <h4>空间限制: {{question.memoryLimit}} MB</h4>
+        <a class="btn btn-primary" href="{% url 'ojsys:submitpage' question.id %}" role="button">提交</a>
     </div>
-    <div class="card">
+    <div class="card m-3">
         <div class="card-body">
             <h5 class="card-title">题目描述</h5>
             <div id="problemDesc">
