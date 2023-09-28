@@ -13,7 +13,8 @@
         margin: 0 auto;
         width: 96%;
     }
-    #problemDesc{
+
+    #problemDesc {
         margin: 0 auto;
         width: 80%;
     }
@@ -29,10 +30,15 @@
     </nav>
     <div id="problemInf" class="text-center">
         <h1>{{question.id}}: {{question.title}}</h1>
-        <h4>time limit:{{question.timeLimit}} ms</h4>
-        <h4>memory limit:{{question.memoryLimit}} MB</h4>
+        <h4>时间限制:{{question.timeLimit}} ms</h4>
+        <h4>空间限制:{{question.memoryLimit}} MB</h4>
     </div>
-    <div id="problemDesc">
-        {{md|safe}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">题目描述</h5>
+            <div id="problemDesc">
+                <div class="card-text">{{md|safe}}</div>
+            </div>
+        </div>
     </div>
 </body>
