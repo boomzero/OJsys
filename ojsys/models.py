@@ -3,8 +3,10 @@ from django.db import models
 
 class Question(models.Model):
     title = models.CharField(max_length=200)
-    question_text = models.TextField()
+    text = models.TextField()
     pub_date = models.DateTimeField("date published")
+    timeLimit = models.IntegerField(default=1000)
+    memoryLimit = models.IntegerField(default=128)
     submissionCnt = models.IntegerField(default=0)
     acceptedCnt = models.IntegerField(default=0)
 

@@ -1,14 +1,38 @@
 <!DOCTYPE html>
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </head>
 <style>
     body {
         background-color: #f2f2f2;
+        margin: 0 auto;
+        width: 96%;
+    }
+    #problemDesc{
+        margin: 0 auto;
+        width: 80%;
     }
 </style>
+
 <body>
-    <h1>{{title}}</h1>
-    <p>{{question}}</p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/problemset/">Problemset</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{question.id}}</li>
+        </ol>
+    </nav>
+    <div id="problemInf" class="text-center">
+        <h1>{{question.id}}: {{question.title}}</h1>
+        <h4>time limit:{{question.timeLimit}} ms</h4>
+        <h4>memory limit:{{question.memoryLimit}} MB</h4>
+    </div>
+    <div id="problemDesc">
+        {{md|safe}}
+    </div>
 </body>
