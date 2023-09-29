@@ -8,7 +8,7 @@ python3 manage.py runserver
 ```
 Then create an admin user:
 ```bash
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 ```
 The admin dashboard is in `/admin/`
 ## demo
