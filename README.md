@@ -1,8 +1,7 @@
 # OJsys
 ## how to use
-1. install django
-2. 
 ```bash
+python -m pip install django
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
