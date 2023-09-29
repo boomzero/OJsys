@@ -50,14 +50,17 @@ def submit(request, question_id):
         sub = Submission(
             question=question, code=code, lang=lang, user = "admin" #for now
         )
+        question.submissionCnt += 1
         try:
             dataSets= Dataset.objects.get(Dataset, question=question_id)
         except(Exception):
             sub.status="Accepted"
             sub.score=0
+            question.acceptedCnt += 1
             sub.save()
+            question.save()
             return HttpResponseRedirect(reverse("ojsys:submitindex", args=()))
-        
+        question.save()
         return HttpResponseRedirect(reverse("ojsys:submitindex", args=()))
 
 def submissions(request, question_id):
