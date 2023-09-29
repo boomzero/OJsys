@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Question
+from django.urls import reverse
 from django.http import Http404
 import markdown
 
@@ -34,17 +35,16 @@ def submit(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         code = request.POST["code"]
-    except (KeyError, code.DoesNotExist):
+        lang = request.POST["lang"]
+    except ():
         return render(
             request,
             "ojsys/submitpage.html",
             {
                 "question": question,
-                "error_message": "You didn't select a choice.",
+                "error_message": "You didn't submit any code",
             },
         )
     else:
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
-        return HttpResponseRedirect(reverse("ojsys:results", args=(question.id,)))
+        # Temporarily redirect back
+        return HttpResponseRedirect(reverse("ojsys:detail", args=(question.id,)))
