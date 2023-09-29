@@ -10,7 +10,7 @@ Then create an admin user:
 ```bash
 python manage.py createsuperuser
 ```
-The admin dashboard is in /admin/
+The admin dashboard is in `/admin/`
 ## demo
 
 ![main](https://github.com/boomzero/OJsys/assets/85378277/716cabe0-28a3-48aa-90b0-1957aac09af7)
