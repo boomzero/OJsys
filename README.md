@@ -1,10 +1,10 @@
 # OJsys
-## how to use
+## How to use
 ```bash
-python -m pip install django
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+python3 -m pip install django
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py runserver
 ```
 ## demo
 ![OJSys](https://github.com/boomzero/OJsys/assets/85378277/61fa121b-2f70-4692-a006-391e058caa97)
