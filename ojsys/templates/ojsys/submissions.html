@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    #problemlist {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #problemlist td,
+    #problemlist th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #problemlist tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #problemlist tr:hover {
+        background-color: #ddd;
+    }
+
+    #problemlist th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    body {
+        background-color: #f2f2f2;
+        margin: 0 auto;
+        width: 96%;
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">OJSys</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ojsys/problemset">Problemset</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/ojsys/submissions">Submissions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/ojsys/problemset/">Problemset</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'ojsys:detail' question.id %}">{{question.id}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Submissions</li>
+        </ol>
+    </nav>
+    <div id="problemlist" class="container text-center">
+        {% if latest_submission_list %}
+        <div class="row">
+            <div class="col">
+                序号
+            </div>
+            <div class="col">
+                状态
+            </div>
+            <div class="col">
+                分数
+            </div>
+        </div>
+        {% for sub in latest_submission_list %}
+        <div class="row">
+            <div class="col">
+                {{ sub.id }}
+            </div>
+            <div class="col">
+                {{sub.status}}
+            </div>
+            <div class="col">
+                {{sub.score}}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No submisisons are available.</p>
+        {% endif %}
+    </div>
+</body>

@@ -4,9 +4,11 @@ from . import views
 
 app_name = "ojsys"
 urlpatterns = [
-    path("", views.index, name="index"),
+    #path("", views.index, name="index"),
+    path("problemset/", views.index, name="index"),
+    path("submissions/", views.submitindex, name="submitindex"),
     path("<int:question_id>/", views.detail, name="detail"),
     path("<int:question_id>/submitpage/", views.submitpage, name="submitpage"),
-    path("<int:question_id>/submitions/", views.submitpage, name="submitions"),
+    path("<int:question_id>/submissions/", views.submissions, name="submissions"),
     path("<int:question_id>/submit/", views.submit, name="submit"),
 ]

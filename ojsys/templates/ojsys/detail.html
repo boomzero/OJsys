@@ -34,7 +34,10 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/problemset">Problemset</a>
+                        <a class="nav-link" href="/ojsys/problemset">Problemset</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/ojsys/submissions">Submissions</a>
                     </li>
                 </ul>
             </div>
@@ -43,7 +46,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/problemset/">Problemset</a></li>
+            <li class="breadcrumb-item"><a href="/ojsys/problemset/">Problemset</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{question.id}}</li>
         </ol>
     </nav>
@@ -52,6 +55,7 @@
         <h4>时间限制: {{question.timeLimit}} ms</h4>
         <h4>空间限制: {{question.memoryLimit}} MB</h4>
         <a class="btn btn-primary" href="{% url 'ojsys:submitpage' question.id %}" role="button">提交</a>
+        <a class="btn btn-primary " href="{% url 'ojsys:submissions' question.id%}" role="button">状态</a>
     </div>
     <div class="card m-3">
         <div class="card-body">
