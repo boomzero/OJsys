@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-q97dr5w34)=b&ng2kpg4%t*c++b1m41&zzivy_j^-udwti+020
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["boomzero.pythonanywhere.com"]
 
 
 # Application definition
@@ -118,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/home/boomzero/OJsys/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
