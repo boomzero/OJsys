@@ -23,7 +23,13 @@ class Dataset(models.Model):
     spj = models.TextField(default="N/A")
 
     def __str__(self):
-        return self.dataset_in
+        return (
+            self.question.id.__str__()
+            + ": "
+            + self.question.title
+            + " - "
+            + self.id.__str__()
+        )
 
 
 class Submission(models.Model):
