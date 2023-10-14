@@ -20,7 +20,7 @@ class Dataset(models.Model):
     dataset_out = models.TextField()
     isSample = models.BooleanField(default=False)
     isSpj = models.BooleanField(default=False)
-    spj = models.TextField()
+    spj = models.TextField(default="N/A")
 
     def __str__(self):
         return self.dataset_in
