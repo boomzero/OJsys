@@ -40,6 +40,22 @@
                         <a class="nav-link active" aria-current="page" href="/ojsys/submissions">Submissions</a>
                     </li>
                 </ul>
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto" style="margin-left: auto;">
+                    <li class="nav-item">
+                        <span class="navbar-text p-1">Hello, {{ user.username }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ojsys/logout">Logout</a>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto" style="margin-left: auto;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ojsys/login">Login</a>
+                    </li>
+                </ul>
+                {% endif %}
             </div>
         </div>
     </nav>
