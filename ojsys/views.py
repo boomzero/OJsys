@@ -17,7 +17,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')
+            return redirect('/')
     else:
         form = AuthenticationForm()
     return render(request, 'ojsys/login.html', {'form': form})
@@ -48,6 +48,9 @@ def submitpage(request, question_id):
 
 
 def submit(request, question_id):
+    #check auth status
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse("ojsys:login", args=()))
     question = get_object_or_404(Question, pk=question_id)
     try:
         code = request.POST["code"]
@@ -63,7 +66,7 @@ def submit(request, question_id):
         )
     else:
         sub = Submission(
-            question=question, code=code, lang=lang, user="admin"  # for now
+            question=question, code=code, lang=lang, user=request.user, status="Pending"
         )
         question.submissionCnt += 1
         try:
@@ -88,7 +91,12 @@ def submit(request, question_id):
                     },
                 )
                 print(response.text)
+        #for now
+        sub.status = "Accepted"
+        sub.score = 0
+        question.acceptedCnt += 1
         question.save()
+        sub.save()
         return HttpResponseRedirect(reverse("ojsys:submitindex", args=()))
 
 
