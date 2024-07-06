@@ -1,4 +1,6 @@
 # OJsys
+# Do not use this
+
 ## How to use
 ```bash
 python3 -m pip install django
